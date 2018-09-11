@@ -16,13 +16,18 @@ body {
 }
 
 .nav{
-    float: right;
     list-style: none;
-    margin-top: 30px;
+    margin: 0;
+    padding-top: 5px;
+
 }
 
 .nav li{
-    display: inline-block;
+    width: 150px;
+    height: 40px;
+    float: right;
+    text-align: center;
+
 }
 
 .nav li a{
@@ -31,6 +36,7 @@ body {
     padding: 5px 20px;
     font-family: arial;
     font-size: 18px;
+    display: block;
 }
 
 .nav li a:hover{
@@ -39,12 +45,29 @@ body {
     font-weight: bold;
 }
 
+.nav .dropdwn li{
+    display: none;
+}
+
+.nav li:hover .dropdwn li{
+    display: block;
+    border: 1px solid white;
+}
+
+.nav li:hover .dropdwn li:hover{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+
 .logosec img{
-    width: 200px;
-    height: 150px;
+    padding-top: 5px;
+    width: 250px;
+    height: 200px;
     border-radius: 10px;
     float: left;
-    padding-top: 5px;
+    
 }
 
 .welcome{
