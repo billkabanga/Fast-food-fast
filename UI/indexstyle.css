@@ -3,6 +3,7 @@ body {
     padding: 0;
 }
 
+/*------Global container of page--------*/
 .container{
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(coke2.jpg);
     height: 100vh;
@@ -10,6 +11,7 @@ body {
     background-position: center;
 }
 
+/*---------header section with logo and nav bar-------------------*/
 .navbar {
     max-width: 1200px;
     margin: auto;
@@ -60,7 +62,6 @@ body {
     border: none;
 }
 
-
 .logosec img{
     padding-top: 5px;
     width: 250px;
@@ -70,6 +71,7 @@ body {
     
 }
 
+/*------------------Welcome section--------------*/
 .welcome{
     padding-top: 45px;
     width: 1200px;

@@ -3,6 +3,8 @@ body {
     padding: 0;
 }
 
+/*--------global section---------------*/
+
 .container{
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(chips.jpg);
     height: 100vh;
@@ -10,6 +12,7 @@ body {
     background-position: center;
 }
 
+/*-----------Form section------------------*/
 .loginbox{
     width: 320px;
     height: 500px;
@@ -22,6 +25,31 @@ body {
     box-sizing: border-box;
     padding: 50px 30px; 
     border-radius: 5px;
+}
+
+.loginbox .signbutton{
+    width: 100px;
+    height: 40px;
+    background: black;
+    border: 0;
+    color: white; 
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.loginbox .signbutton:hover{
+    background: blue;
+    cursor: pointer;
+}
+
+.loginbox .signbutton a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.loginbox .signbutton a:hover{
+    font-weight: bold;
 }
 
 #usersignup{
@@ -67,27 +95,15 @@ body {
 
 .loginbox input[type="text"], input[type="password"], input[type="tel"] {
     border: none;
-    border-bottom: 1px solid #fff;
     border-radius: 10px;
     background: lightgrey;
     outline: none;
     height: 40px;
     color: black;
+    padding-left: 5px;
     margin-bottom: 5px;
     font-size: 20px;
     width: 250px;
-}
-
-.loginbox input[type="submit"]{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: black;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 20px;
-    margin-top: 5px;
-    width: 100px;
 }
 
 .loginbox a{
