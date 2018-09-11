@@ -24,6 +24,20 @@ body {
     border-radius: 5px;
 }
 
+#usersignup{
+    width: 320px;
+    height: 520px;
+    background: white;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 30px 30px; 
+    border-radius: 5px;  
+}
+
 .loginbox h1{
     margin-top: 0;
     padding: 0 0 10px;
@@ -37,7 +51,7 @@ body {
     font-size: 18px;
 }
 
-.loginbox input[type="text"], input[type="password"]{
+.loginbox input[type="text"], input[type="password"], input[type="tel"] {
     border: none;
     border-bottom: 1px solid #fff;
     border-radius: 10px;
