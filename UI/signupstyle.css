@@ -38,6 +38,20 @@ body {
     border-radius: 5px;  
 }
 
+#adsignin{
+    width: 320px;
+    height: 350px;
+    background: white;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 30px 30px; 
+    border-radius: 5px;
+
+}
 .loginbox h1{
     margin-top: 0;
     padding: 0 0 10px;
