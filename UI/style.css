@@ -1,0 +1,164 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(coke2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-color: white;
+}
+
+.header{
+    margin-top: 5px;
+    line-height: 40px;
+    background-color: gray;
+}
+
+.headerlogo{
+    float: left;
+    height: 100px;
+    width: 140px;
+    margin-right: 2px;
+}
+
+.brand{
+    float: left;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 28%;;
+}
+.brand h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+.navbar{
+    float: right;
+}
+
+.nav{
+    float: right;
+    line-height: 70px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 10px 20px;
+    background: black;
+    line-height: normal;
+    border-radius: 5px;
+    color: white;
+}
+
+.nav li a{
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+}
+
+.nav li:hover{
+    background-color: gray;
+    font-weight: bold;
+}
+
+.showcase{
+    margin-top: 119px;
+    min-height: 200px; 
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(rolex.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+.showcase h1{
+    padding-top: 50px;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.showcase p{
+    font-size: 20px;
+}
+
+.available{
+    margin-left: 5%;
+    width: 60%;
+}
+
+.menu-head{
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    line-height: 100px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.menu-head h1{
+    line-height: 52px;
+    text-align: left;
+    font-family: arial;
+    float: left;
+    padding-left: 10px;
+}
+
+.menu-head form{
+    padding-left: 50%;
+}
+.menu-head input[type="search"]{
+    height: 35px;
+    width: 250px;
+}
+
+.button-search{
+    height: 35px;
+    background: black;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.button-search:hover{
+    background: gray;
+    font-weight: bold;
+}
+
+.food-item{
+    border: 2px solid gainsboro;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+
+.food-item h2{
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 4px;
+    font-family: arial;
+}
+
+.food-item p{
+    font-family: arial;
+    font-size: 18px;
+    float: right;
+    padding-right: 10%;
+}
+.food-item img{
+    padding-left: 10%;
+    height: 80px;
+    width: 100px;
+}
+
+
