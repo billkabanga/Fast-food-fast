@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(coke2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/coke2.jpg);
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -75,7 +75,7 @@ body{
 .showcase{
     margin-top: 119px;
     min-height: 200px; 
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(rolex.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/rolex.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
