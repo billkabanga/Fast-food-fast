@@ -92,8 +92,8 @@ body{
 }
 
 .available{
-    margin-left: 5%;
-    width: 60%;
+    margin-left: 15%;
+    width: 70%;
 }
 
 .menu-head{
@@ -216,6 +216,14 @@ th{
     color: white;
     font-size: 15px;
     margin-bottom: 1px;
+}
+
+#order-history{
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-family: arial;
+    width: 40%;
+    margin-left: 15%;
 }
 
 
