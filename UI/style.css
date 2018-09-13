@@ -161,4 +161,61 @@ body{
     width: 100px;
 }
 
+.order-table{
+    float: left;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-family: arial;
+    margin-bottom: 5px;
+}
+
+.table-heading{
+    text-align: center;
+    display: block;
+}
+
+th,td{
+    padding: 10px;
+    width: 120px;
+}
+
+th{
+    background-color: black;
+    color: white;
+}
+
+
+.order{
+    text-align: center;
+    font-family: arial;
+}
+
+.button-status{
+    height: 35px;
+    background: black;
+    border: 0;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.button-status:hover, .button-acc:hover{
+    background: blue;
+    font-weight: bold;
+}
+
+.button-acc{
+    height: 30px;
+    background: black;
+    border: 0;
+    border-radius: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
 
