@@ -33,5 +33,24 @@ class OrdersHandler(Resource):
         if len(orders) == 0:
             return jsonify({'message': 'No orders have been placed yet'})
         return response
+    
+    def post(self):
+        """
+        method to post a question
+        """
+        order_id = len(orders) + 1
+        order_status = 'submitted'
+        args = self.reqparse.parse_args()
+        response = Orders(order_id, args['client'], args['contact'], args['order_item'],\
+         args['price'], order_status)
+        response = response.to_json()
+        if response:
+            client_name = args['client']
+            client_name = client_name.strip()
+            if not re.match(r"^[a-zA-Z]+$", client_name):
+                return make_response(jsonify({'message': 'Username should only have letters'}), 400)
+            orders.append(response)
+            return make_response(jsonify({'message': 'Order has been placed'}), 201)
+        return make_response(jsonify({'message': 'Order not placed'}), 400)
 
 api.add_resource(OrdersHandler, '/orders')
