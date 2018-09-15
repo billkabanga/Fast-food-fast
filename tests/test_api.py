@@ -51,3 +51,17 @@ class OrdersTest(unittest.TestCase):
             order_item="rice", price="2000"))
             response = client.get(BASE_URL+'/2')
             self.assertEqual(response.status_code, 200)
+    
+    def test_update_status(self):
+        """
+        method tests if order status is updated
+        asserts status code is 201
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.get(BASE_URL+'/2')
+            response = client.put(BASE_URL+'/2', json=dict(order_status='Accepted'))
+            self.assertEqual(response.status_code, 201)

@@ -75,6 +75,20 @@ class SpecificOrder(Resource):
             if order['order_id'] == order_id:
                 return order
         return make_response(jsonify({'message': 'order not found'}), 404)
+    
+    def put(self, order_id):
+        """
+        method to update order-status
+        :param order_id:
+        """
+        for order in orders:
+            if order['order_id'] == order_id:
+                args = self.reqparse.parse_args()
+                response = args['order_status']
+                if response:
+                    order['order_status'] = response
+                    return make_response(jsonify({'message': 'order status updated'}), 201)
+                return make_response(jsonify({'message': 'order status not updated'}), 400)
 
 api.add_resource(OrdersHandler, '/orders')
 api.add_resource(SpecificOrder, '/orders/<int:order_id>')
