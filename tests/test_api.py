@@ -39,3 +39,15 @@ class OrdersTest(unittest.TestCase):
             response = client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
             order_item="chips", price="2000"))
             self.assertEqual(response.status_code, 201)
+    def test_get_specific_order(self):
+        """
+        method tests if specific order is fetched
+        asserts status code is 200
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            response = client.get(BASE_URL+'/2')
+            self.assertEqual(response.status_code, 200)

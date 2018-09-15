@@ -53,4 +53,28 @@ class OrdersHandler(Resource):
             return make_response(jsonify({'message': 'Order has been placed'}), 201)
         return make_response(jsonify({'message': 'Order not placed'}), 400)
 
+class SpecificOrder(Resource):
+    """
+    class handles methods for specific order
+    """
+    def __init__(self):
+        """
+        constructor method for the class
+        """
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('order_status', type=str, required=True,\
+         help='please provide your name')
+
+    def get(self, order_id):
+        """
+        method to get a specific question
+        :param order_id:
+        :return: order
+        """
+        for order in orders:
+            if order['order_id'] == order_id:
+                return order
+        return make_response(jsonify({'message': 'order not found'}), 404)
+
 api.add_resource(OrdersHandler, '/orders')
+api.add_resource(SpecificOrder, '/orders/<int:order_id>')
