@@ -39,6 +39,24 @@ class OrdersTest(unittest.TestCase):
             response = client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
             order_item="chips", price="2000"))
             self.assertEqual(response.status_code, 201)
+    def test_invalid_name_input(self):
+        """
+        method tests for invalid name input
+        asserts that response code is 400
+        """
+        with self.client as client:
+            response = client.post(BASE_URL, json=dict(client='Bill4568', contact='0784318356', \
+            order_item="chips", price="2000"))
+            self.assertEqual(response.status_code, 400)
+    def test_order_not_placed(self):
+        """
+        method tests for order not placed
+        asserts that response code is 400
+        """
+        with self.client as client:
+            response = client.post(BASE_URL, json=dict(contact='0784318356', \
+            order_item="chips", price="2000"))
+            self.assertEqual(response.status_code, 400)
     def test_get_specific_order(self):
         """
         method tests if specific order is fetched
@@ -51,7 +69,18 @@ class OrdersTest(unittest.TestCase):
             order_item="rice", price="2000"))
             response = client.get(BASE_URL+'/2')
             self.assertEqual(response.status_code, 200)
-    
+    def test_order_not_found(self):
+        """
+        method tests if specific order is fetched
+        asserts status code is 404
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            response = client.get(BASE_URL+'/560')
+            self.assertEqual(response.status_code, 404)
     def test_update_status(self):
         """
         method tests if order status is updated
@@ -65,3 +94,29 @@ class OrdersTest(unittest.TestCase):
             client.get(BASE_URL+'/2')
             response = client.put(BASE_URL+'/2', json=dict(order_status='Accepted'))
             self.assertEqual(response.status_code, 201)
+    def test_status_not_updated(self):
+        """
+        method tests if order status is not updated
+        asserts status code is 400
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.get(BASE_URL+'/2')
+            response = client.put(BASE_URL+'/2', json=dict())
+            self.assertEqual(response.status_code, 400)
+    def test_status_no_updated(self):
+        """
+        method tests if order status is not updated
+        asserts status code is 400
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.get(BASE_URL+'/2')
+            response = client.put(BASE_URL+'/2', json=dict(client='Bill'))
+            self.assertEqual(response.status_code, 400)
