@@ -60,6 +60,9 @@ Run the `run.py` file and test the endpoints in Postman as shown below:
 **Running unittests for the API endpoints**
 Use the `pytest tests --cov=api --cov-report term-missing` command to run the tests and get the coverage report.
 
+## Deployment:
+The app has been hosted on heroku, use the following link (https://bill-fast-food-fast.herokuapp.com/api/v1/orders)
+
 ## Built with:
 **User Interface**
 * HTML5
