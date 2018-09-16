@@ -2,6 +2,7 @@
 module tests
 """
 import unittest
+import json
 from api import create_app
 from config import TestingConfig
 
@@ -50,12 +51,21 @@ class OrdersTest(unittest.TestCase):
             self.assertEqual(response.status_code, 400)
     def test_order_not_placed(self):
         """
-        method tests for order not placed
+        method tests for order not placed due to missing param
         asserts that response code is 400
         """
         with self.client as client:
             response = client.post(BASE_URL, json=dict(contact='0784318356', \
             order_item="chips", price="2000"))
+            self.assertEqual(response.status_code, 400)
+    def test_invalid_order_item(self):
+        """
+        method tests for invalid order item
+        asserts that response code is 400
+        """
+        with self.client as client:
+            response = client.post(BASE_URL, json=dict(client='James Angero',contact='0784318356', \
+            order_item="****-*-*", price="2000"))
             self.assertEqual(response.status_code, 400)
     def test_get_specific_order(self):
         """
@@ -118,5 +128,28 @@ class OrdersTest(unittest.TestCase):
             client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
             order_item="rice", price="2000"))
             client.get(BASE_URL+'/2')
-            response = client.put(BASE_URL+'/2', json=dict(client='Bill'))
+            response = client.put(BASE_URL+'/2')
             self.assertEqual(response.status_code, 400)
+    def test_invalid_order_status(self):
+        """
+        method tests if order status is invalid
+        asserts status code is 400
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.get(BASE_URL+'/2')
+            response = client.put(BASE_URL+'/2', json=dict(order_status='***-/-*'))
+            self.assertEqual(response.status_code, 400)
+    def test_page_not_found(self):
+        """
+        method tests if a page is not found with invalid URL
+        asserts that response message is 'page not found'
+        """
+        with self.client as client:
+            response = client.post(BASE_URL+'/-*+*+', json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            response_data = json.loads(response.data.decode())
+            self.assertIn('Page not found', response_data['message'])
