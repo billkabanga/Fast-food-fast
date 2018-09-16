@@ -19,7 +19,7 @@ class OrdersHandler(Resource):
         self.reqparse.add_argument('client', type=str, required=True,\
          help='please provide your name')
         self.reqparse.add_argument('contact', type=int, required=True,\
-         help='please provide your contact')
+         help='please provide your contact(digits)')
         self.reqparse.add_argument('order_item', type=str, required=True,\
          help='please provide your order')
         self.reqparse.add_argument('price', type=int, required=True,\
@@ -49,6 +49,8 @@ class OrdersHandler(Resource):
         if response:
             if not re.match(r"^[a-zA-Z ]+$", client_name):
                 return make_response(jsonify({'message': 'Username should only have letters'}), 400)
+            if not re.match(r"^[0-9a-zA-Z ]+$", args['order_item']):
+                return make_response(jsonify({'message': 'Contact can only be digits'}), 400)
             orders.append(response)
             return make_response(jsonify({'message': 'Order has been placed'}), 201)
         return make_response(jsonify({'message': 'Please enter a valid order'}), 400)
@@ -86,6 +88,8 @@ class SpecificOrder(Resource):
                 args = self.reqparse.parse_args()
                 response = args['order_status']
                 if response:
+                    if not re.match(r"^[a-zA-Z ]+$", response):
+                        return make_response(jsonify({'message': 'Order status should only have letters'}), 400)
                     order['order_status'] = response
                     return make_response(jsonify({'message': 'order status updated'}), 201)
                 return make_response(jsonify({'message': 'Please enter a valid order status'}), 400)

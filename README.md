@@ -50,12 +50,12 @@ To install all the required extensions for project, use the following command: `
 **Testing the API endpoints.**
 Run the `run.py` file and test the endpoints in Postman as shown below:
 
-|     Endpoint                        | Verb          | Action                     |      
-| ----------------------------------- |:-------------:|  ------------------------- |
-| /api/v1/orders                      | GET           | Get all orders          | 
-| /api/v1/orders/<int:orderId>        | GET           | Get a specific order          | 
-| /api/v1/orders                   | POST          | Place a new order             |
-| /api/v1/orders/<int:orderId>| PUT          | Update status of an order |
+|     Endpoint                        | Verb          | Action                     |   Parameters     |
+| ----------------------------------- |:-------------:|  ------------------------- | ----------------- |
+| /api/v1/orders                      | GET           | Get all orders          | none   |
+| /api/v1/orders/<int:orderId>        | GET           | Get a specific order          | none  |
+| /api/v1/orders                   | POST          | Place a new order             | client,contact,order_item,price |
+| /api/v1/orders/<int:orderId>| PUT          | Update status of an order | order_status  |
 
 **Running unittests for the API endpoints**
 Use the `pytest tests --cov=api --cov-report term-missing` command to run the tests and get the coverage report.
