@@ -99,3 +99,81 @@ body {
     font-weight: bold;
 }
 
+/*------------handling responsives for home page-----------------*/
+@media(max-width: 768px){
+    .body{
+        width: 100%;
+    }
+    .container{
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/coke2.jpg);
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    .navbar{
+        margin: 0;
+        width: 100%;
+    }
+    .nav{
+        float: none;
+        margin-left: 0;
+        width: 70%;
+    }
+    
+    .nav li{
+        border: none;
+        padding: 0;
+        width: 65px;
+        text-align: center;
+    }
+    .nav li:hover{
+        border: none;
+    }
+    .nav li a{
+        font-size: 14px;
+        padding-left: 3px;
+            
+    }
+    .logosec img{
+        padding-top: 5px;
+        margin-left: 25%;
+        width: 150px;
+        height: 100px;
+        border-radius: 10px;
+        float: none;
+        
+    }
+    .nav .dropdwn li{
+        display: none;
+        background-color: rgba(0,0,0,2);
+        padding: 0;
+        z-index: 3;
+    }
+    .nav li:hover .dropdwn li{
+        display: block;
+        border: none;  
+    }
+    
+    .nav li:hover .dropdwn li:hover{
+        background-color: black;
+        color: white;
+        border: none;
+    }
+    .welcome{
+        width: 100%;
+        margin: 0;
+    }
+    .welcome h1{
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 30px;
+    }
+    .welcome p{
+        font-size: 25px;
+        margin-bottom: 150px;
+    }
+}
+
