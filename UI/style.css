@@ -229,4 +229,94 @@ th{
     margin-left: 15%;
 }
 
+/*------------handling responsives for user page-----------------*/
+@media(max-width: 768px){
+    .body{
+        width: 100%;
+        background-image: none;
+    }
+    .header{
+        background-color: white;
+        line-height: 20px;
+    }
+    .headerlogo, .brand, .nav, .navbar{
+        float: none;
+    }
+    .headerlogo{
+        margin-left: 30%;
+    }
+    .brand{
+        padding-left: 10px;
+        line-height: 20px;
+    }
+    .brand h1{
+        text-align: center;
+        font-size: 30px;
+    }
+    .nav{
+        margin-left: 75px;
+        line-height: 20px;
+    }
+    .nav li a{
+        font-size: 15px;
+    }
+    .showcase{
+        margin-top: 0;
+    }
+    .available{
+        width: 400px;
+        margin: 2px;
+    }
+    .menu-head{
+        height: 180px;
+    }
+    .menu-head h1{
+        float: none;
+        text-align: center;
+        font-size: 30px;
+    }
+    .menu-head form{
+        padding-left: 5%;
+    }
+    .food-item h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    .food-item p{
+        float: none;
+        text-align: center;
+    }
+    .food-item img{
+        
+        padding-left: 35%;
+    }
+    #order-history{
+        margin-left: 0;
+        width: 400px;
+    }
+    .order-table{
+        float: none;
+        width: 400px;
+    }
+    
+    td, th{
+        padding: 2px;
+        width: 50px;
+    }
+    .order{
+        font-size: 12px;
+        text-align: left;
+    }
+    .button-status, .button-acc{
+        height: 28px;
+        width: 85px;
+        padding-left: 9px;
+        font-size: 15px;
+    }
+    .button-acc{
+        padding-left: 12px;
+    }
+    
+}
+
 
