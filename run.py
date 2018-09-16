@@ -1,3 +1,6 @@
+"""
+module run
+"""
 from config import DevelopmentConfig
 from api import create_app
 
