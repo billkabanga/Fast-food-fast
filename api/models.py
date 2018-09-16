@@ -23,12 +23,4 @@ class Orders:
         """
         method converts data to json format
         :return: json_data"""
-        json_data = {
-            'order_id': self.order_id,
-            'client': self.client,
-            'contact': self.contact,
-            'order_item': self.order_item,
-            'price': self.price,
-            'order_status': self.order_status
-        }
-        return json_data
+        return self.__dict__

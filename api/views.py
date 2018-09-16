@@ -41,17 +41,17 @@ class OrdersHandler(Resource):
         order_id = len(orders) + 1
         order_status = 'submitted'
         args = self.reqparse.parse_args()
-        response = Orders(order_id, args['client'], args['contact'], args['order_item'],\
+        client_name = args['client']
+        client_name = client_name.strip()
+        response = Orders(order_id, client_name, args['contact'], args['order_item'],\
          args['price'], order_status)
         response = response.to_json()
         if response:
-            client_name = args['client']
-            client_name = client_name.strip()
-            if not re.match(r"^[a-zA-Z]+$", client_name):
+            if not re.match(r"^[a-zA-Z ]+$", client_name):
                 return make_response(jsonify({'message': 'Username should only have letters'}), 400)
             orders.append(response)
             return make_response(jsonify({'message': 'Order has been placed'}), 201)
-        return make_response(jsonify({'message': 'Order not placed'}), 400)
+        return make_response(jsonify({'message': 'Please enter a valid order'}), 400)
 
 class SpecificOrder(Resource):
     """
@@ -74,7 +74,7 @@ class SpecificOrder(Resource):
         for order in orders:
             if order['order_id'] == order_id:
                 return order
-        return make_response(jsonify({'message': 'order not found'}), 404)
+        return make_response(jsonify({'message': 'Order not found'}), 404)
     
     def put(self, order_id):
         """
@@ -88,7 +88,7 @@ class SpecificOrder(Resource):
                 if response:
                     order['order_status'] = response
                     return make_response(jsonify({'message': 'order status updated'}), 201)
-                return make_response(jsonify({'message': 'order status not updated'}), 400)
+                return make_response(jsonify({'message': 'Please enter a valid order status'}), 400)
 
 api.add_resource(OrdersHandler, '/orders')
 api.add_resource(SpecificOrder, '/orders/<int:order_id>')
