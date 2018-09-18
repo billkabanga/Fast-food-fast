@@ -93,6 +93,16 @@ class SpecificOrder(Resource):
                     order['order_status'] = response
                     return make_response(jsonify({'message': 'order status updated'}), 201)
                 return make_response(jsonify({'message': 'Please enter a valid order status'}), 400)
+    
+    def delete(self, order_id):
+        """
+        method deletes a specific order
+        """
+        for order in orders:
+            if order['order_id'] == order_id:
+                orders.remove(order)
+                return jsonify({'message': 'Order deleted'})
+        return make_response(jsonify({'message': 'Order not available'}), 404)
 
 api.add_resource(OrdersHandler, '/orders')
 api.add_resource(SpecificOrder, '/orders/<int:order_id>')

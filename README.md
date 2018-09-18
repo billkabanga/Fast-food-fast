@@ -53,9 +53,10 @@ Run the `run.py` file and test the endpoints in Postman as shown below:
 |     Endpoint                        | Verb          | Action                     |   Parameters     |
 | ----------------------------------- |:-------------:|  ------------------------- | ----------------- |
 | /api/v1/orders                      | GET           | Get all orders          | none   |
-| /api/v1/orders/<int:orderId>        | GET           | Get a specific order          | none  |
+| /api/v1/orders/<int:orderId>        | GET           | Get a specific order          | order_id(URL)  |
 | /api/v1/orders                   | POST          | Place a new order             | client,contact,order_item,price |
-| /api/v1/orders/<int:orderId>| PUT          | Update status of an order | order_status  |
+| /api/v1/orders/<int:orderId>| PUT          | Update status of an order | order_status,order_id(URL)  |
+| /api/v1/orders/<int:orderId> | DELETE     | Delete a specific order | order_id(URL) |
 
 **Running unittests for the API endpoints**
 Use the `pytest tests --cov=api --cov-report term-missing` command to run the tests and get the coverage report.

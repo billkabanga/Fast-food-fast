@@ -153,3 +153,33 @@ class OrdersTest(unittest.TestCase):
             order_item="chips", price="2000"))
             response_data = json.loads(response.data.decode())
             self.assertIn('Page not found', response_data['message'])
+    def test_order_deleted(self):
+        """
+        method tests if order is deleted
+        asserts message 'order deleted'
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.post(BASE_URL, json=dict(client='Jude', contact='0784318356', \
+            order_item="rice", price="2000"))
+            response = client.delete(BASE_URL+'/3')
+            response_data = json.loads(response.data.decode())
+            self.assertIn('Order deleted', response_data['message'])
+    def test_order_not_deleted(self):
+        """
+        method tests if order is not deleted
+        asserts message 'order deleted'
+        """
+        with self.client as client:
+            client.post(BASE_URL, json=dict(client='Bill', contact='0784318356', \
+            order_item="chips", price="2000"))
+            client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
+            order_item="rice", price="2000"))
+            client.post(BASE_URL, json=dict(client='Jude', contact='0784318356', \
+            order_item="rice", price="2000"))
+            response = client.delete(BASE_URL+'/4586746')
+            response_data = json.loads(response.data.decode())
+            self.assertIn('Order not available', response_data['message'])
