@@ -108,6 +108,9 @@ body{
     width: 100%;
     margin-bottom: 5px;
 }
+#admin{
+    border: none;
+}
 
 .menu-head h1{
     line-height: 52px;
@@ -144,6 +147,9 @@ body{
     border: 2px solid gainsboro;
     padding: 5px;
     margin-bottom: 2px;
+}
+#admin-item{
+    width: 850px;
 }
 
 .food-item h2{
@@ -278,15 +284,18 @@ th{
     .menu-head form{
         padding-left: 5%;
     }
-    .food-item h2{
+    #admin-item{
+        width: 380px;
+    }
+    #admin-item h2, .food-item h2{
         font-size: 20px;
         text-align: center;
     }
-    .food-item p{
+    #admin-item p, .food-item p{
         float: none;
         text-align: center;
     }
-    .food-item img{
+    #admin-item img, .food-item img{
         
         padding-left: 35%;
     }
