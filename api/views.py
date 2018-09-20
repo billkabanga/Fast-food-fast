@@ -2,6 +2,7 @@
 module views
 """
 import re
+import datetime
 from flask import jsonify, Blueprint, make_response
 from flask_restful import Api, Resource, reqparse
 from .models import Orders
@@ -39,12 +40,13 @@ class OrdersHandler(Resource):
         method to post a question
         """
         order_id = len(orders) + 1
+        order_date = datetime.datetime.now().strftime("%A, %d %B %Y %I:%M%p")
         order_status = 'submitted'
         args = self.reqparse.parse_args()
         client_name = args['client']
         client_name = client_name.strip()
         response = Orders(order_id, client_name, args['contact'], args['order_item'],\
-         args['price'], order_status)
+         args['price'], order_date, order_status)
         response = response.to_json()
         if response:
             if not re.match(r"^[a-zA-Z ]+$", client_name):
