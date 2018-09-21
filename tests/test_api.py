@@ -19,6 +19,15 @@ class OrdersTest(unittest.TestCase):
         """
         self.app = create_app(TestingConfig)
         self.client = self.app.test_client()
+    def test_empty_list(self):
+        """
+        method tests if all orders list is empty
+        asserts response message is 'No orders have been placed yet'
+        """
+        with self.client as client:
+            response = client.get(BASE_URL)
+            response_data = json.loads(response.data.decode())
+            self.assertIn('No orders have been placed yet', response_data['message'])
     def test_get_all_orders(self):
         """
         method tests if all orders are fetched
@@ -49,13 +58,13 @@ class OrdersTest(unittest.TestCase):
             response = client.post(BASE_URL, json=dict(client='Bill4568', contact='0784318356', \
             order_item="chips", price="2000"))
             self.assertEqual(response.status_code, 400)
-    def test_order_not_placed(self):
+    def test_invalid_contact_input(self):
         """
-        method tests for order not placed due to missing param
+        method tests for invalid contact input
         asserts that response code is 400
         """
         with self.client as client:
-            response = client.post(BASE_URL, json=dict(contact='0784318356', \
+            response = client.post(BASE_URL, json=dict(client='Bill', contact='078dchvsdgcs8', \
             order_item="chips", price="2000"))
             self.assertEqual(response.status_code, 400)
     def test_invalid_order_item(self):
@@ -127,8 +136,8 @@ class OrdersTest(unittest.TestCase):
             order_item="chips", price="2000"))
             client.post(BASE_URL, json=dict(client='James', contact='0784318356', \
             order_item="rice", price="2000"))
-            client.get(BASE_URL+'/2')
-            response = client.put(BASE_URL+'/2')
+            client.get(BASE_URL+'/56')
+            response = client.put(BASE_URL+'/56', json=dict(order_status='Accepted'))
             self.assertEqual(response.status_code, 400)
     def test_invalid_order_status(self):
         """
