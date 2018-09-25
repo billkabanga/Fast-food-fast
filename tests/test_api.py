@@ -6,7 +6,7 @@ import json
 from api import create_app
 from config import TestingConfig
 
-BASE_URL = 'http://127.0.0.1:5000/api/v1/orders'
+BASE_URL = '/api/v1/orders'
 
 class OrdersTest(unittest.TestCase):
     """
@@ -152,16 +152,16 @@ class OrdersTest(unittest.TestCase):
             client.get(BASE_URL+'/2')
             response = client.put(BASE_URL+'/2', json=dict(order_status='***-/-*'))
             self.assertEqual(response.status_code, 400)
-    def test_page_not_found(self):
+    def test_wrong_url(self):
         """
-        method tests if a page is not found with invalid URL
-        asserts that response message is 'page not found'
+        method tests if a wrong URL is supplied
+        asserts that response message is 'Wrong URL entry'
         """
         with self.client as client:
             response = client.post(BASE_URL+'/-*+*+', json=dict(client='Bill', contact='0784318356', \
             order_item="chips", price="2000"))
             response_data = json.loads(response.data.decode())
-            self.assertIn('Page not found', response_data['message'])
+            self.assertIn('Wrong URL entry', response_data['message'])
     def test_order_deleted(self):
         """
         method tests if order is deleted

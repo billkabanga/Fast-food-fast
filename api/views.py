@@ -22,7 +22,6 @@ class OrdersHandler(Resource):
          help='please provide your order')
         self.reqparse.add_argument('price', type=int, required=True,\
          help='please enter the price')
-
     def get(self):
         """
         method to fetch all orders
@@ -31,7 +30,6 @@ class OrdersHandler(Resource):
         if Orders.is_empty():
             return jsonify({'message': 'No orders have been placed yet'})
         return response
-    
     def post(self):
         """
         method to post a question
@@ -40,7 +38,9 @@ class OrdersHandler(Resource):
         if not re.match(r"^[a-zA-Z ]+$", args['client']):
             return make_response(jsonify({'message': 'Username should only have letters'}), 400)
         if not re.match(r"^[0-9a-zA-Z ]+$", args['order_item']):
-            return make_response(jsonify({'message': 'order item can only have letters and digits'}), 400)
+            return make_response(
+                jsonify({'message': 'order item can only have letters and digits'}), 400
+                )
         if not re.match(r"^07[015789]\d{7}$", args['contact']):
             return make_response(jsonify({'message': 'Contact can only have 10 digits'}), 400)
         client_name = args['client']
@@ -62,7 +62,6 @@ class SpecificOrder(Resource):
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument('order_status', type=str, required=True,\
          help='please provide your name')
-
     def get(self, order_id):
         """
         method to get a specific question
@@ -73,7 +72,6 @@ class SpecificOrder(Resource):
         if order:
             return jsonify({'order': order})
         return make_response(jsonify({'message': 'Order not found'}), 404)
-    
     def put(self, order_id):
         """
         method to update order-status
@@ -88,7 +86,6 @@ class SpecificOrder(Resource):
             order['order_status'] = response
             return make_response(jsonify({'message': 'order status updated'}), 201)
         return make_response(jsonify({'message': 'Order does not exist'}), 400)
-    
     def delete(self, order_id):
         """
         method deletes a specific order
@@ -98,6 +95,5 @@ class SpecificOrder(Resource):
             Orders.delete_order(order_id)
             return jsonify({'message': 'Order deleted'})
         return make_response(jsonify({'message': 'Order not available'}), 404)
-
 api.add_resource(OrdersHandler, '/orders')
 api.add_resource(SpecificOrder, '/orders/<int:order_id>')
