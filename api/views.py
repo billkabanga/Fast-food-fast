@@ -35,7 +35,7 @@ class OrdersHandler(Resource):
         method to post a question
         """
         args = self.reqparse.parse_args()
-        if not re.match(r"^[a-zA-Z]+$", args['client']):
+        if not re.match(r"^[a-zA-Z ]+$", args['client']):
             return make_response(jsonify({'message': 'Username should only have letters'}), 400)
         if not re.match(r"^[0-9a-zA-Z ]+$", args['order_item']):
             return make_response(
