@@ -33,13 +33,16 @@ body {
     background: black;
     border: 0;
     color: white; 
+    font-size: 20px;
     border-radius: 20px;
     margin-top: 5px;
+    outline: 0;
 }
 
 .loginbox .signbutton:hover{
     background: blue;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .loginbox .signbutton a{
@@ -93,7 +96,7 @@ body {
     font-size: 18px;
 }
 
-.loginbox input[type="text"], input[type="password"], input[type="tel"] {
+.loginbox input[type="text"], input[type="password"], input[type="tel"]{
     border: none;
     border-radius: 10px;
     background: lightgrey;
@@ -106,6 +109,10 @@ body {
     width: 250px;
 }
 
+.loginbox input[type="radio"]{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 .loginbox a{
     text-decoration: none;
     font-size: 12px;
