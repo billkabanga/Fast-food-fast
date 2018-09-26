@@ -8,7 +8,7 @@ clientInputs.forEach(function(input) {
     input.addEventListener("change", function(event) {
         //get the client value
         let client = event.currentTarget.value;
-        let action=client === "admin" ? "admin.html":"user.html"
+        let action=client === "admin" ? "admin.html":"user.html";
         form.setAttribute("action",action);
     });
 });
