@@ -1,0 +1,331 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/coke2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/*--------global section------------*/
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-color: white;
+}
+
+/*----------header section-----------*/
+.header{
+    margin-top: 5px;
+    line-height: 40px;
+    background-color: gray;
+}
+
+.headerlogo{
+    float: left;
+    height: 100px;
+    width: 140px;
+    margin-right: 2px;
+}
+
+.brand{
+    float: left;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 28%;;
+}
+.brand h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+.navbar{
+    float: right;
+}
+
+.nav{
+    float: right;
+    line-height: 70px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 10px 20px;
+    background: black;
+    line-height: normal;
+    border-radius: 5px;
+    color: white;
+}
+
+.nav li a{
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+}
+
+.nav li:hover{
+    background-color: gray;
+    font-weight: bold;
+}
+
+/*--------showcase section------------*/
+.showcase{
+    margin-top: 119px;
+    min-height: 200px; 
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/rolex.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+.showcase h1{
+    padding-top: 50px;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.showcase p{
+    font-size: 20px;
+}
+/*-----------------orders section--------------------*/
+.available{
+    margin-left: 15%;
+    width: 70%;
+}
+
+.menu-head{
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    line-height: 100px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+#admin{
+    border: none;
+}
+
+.menu-head h1{
+    line-height: 52px;
+    text-align: left;
+    font-family: arial;
+    float: left;
+    padding-left: 10px;
+}
+
+.menu-head form{
+    padding-left: 50%;
+}
+.menu-head input[type="search"]{
+    height: 35px;
+    width: 250px;
+}
+
+.button-search{
+    height: 35px;
+    background: black;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.button-search:hover{
+    background: gray;
+    font-weight: bold;
+}
+
+.food-item{
+    border: 2px solid gainsboro;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+#admin-item{
+    width: 850px;
+}
+
+.food-item h2{
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 4px;
+    font-family: arial;
+}
+
+.food-item p{
+    font-family: arial;
+    font-size: 18px;
+    float: right;
+    padding-right: 10%;
+}
+.food-item img{
+    padding-left: 10%;
+    height: 80px;
+    width: 100px;
+}
+
+.order-table{
+    float: left;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-family: arial;
+    margin-bottom: 5px;
+}
+
+.table-heading{
+    text-align: center;
+    display: block;
+}
+
+th,td{
+    padding: 10px;
+    width: 120px;
+}
+
+th{
+    background-color: black;
+    color: white;
+}
+
+
+.order{
+    text-align: center;
+    font-family: arial;
+}
+
+.button-status{
+    height: 35px;
+    background: black;
+    border: 0;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.button-status:hover, .button-acc:hover{
+    background: blue;
+    font-weight: bold;
+}
+
+.button-acc{
+    height: 30px;
+    background: black;
+    border: 0;
+    border-radius: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+#order-history{
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-family: arial;
+    width: 40%;
+    margin-left: 15%;
+}
+
+/*------------handling responsives for user page-----------------*/
+@media(max-width: 768px){
+    .body{
+        width: 100%;
+        background-image: none;
+    }
+    .header{
+        background-color: white;
+        line-height: 20px;
+    }
+    .headerlogo, .brand, .nav, .navbar{
+        float: none;
+    }
+    .headerlogo{
+        margin-left: 30%;
+    }
+    .brand{
+        padding-left: 10px;
+        line-height: 20px;
+    }
+    .brand h1{
+        text-align: center;
+        font-size: 30px;
+    }
+    .nav{
+        margin-left: 75px;
+        line-height: 20px;
+    }
+    .nav li a{
+        font-size: 15px;
+    }
+    .showcase{
+        margin-top: 0;
+    }
+    .available{
+        width: 400px;
+        margin: 2px;
+    }
+    .menu-head{
+        height: 180px;
+    }
+    .menu-head h1{
+        float: none;
+        text-align: center;
+        font-size: 30px;
+    }
+    .menu-head form{
+        padding-left: 5%;
+    }
+    #admin-item{
+        width: 380px;
+    }
+    #admin-item h2, .food-item h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    #admin-item p, .food-item p{
+        float: none;
+        text-align: center;
+    }
+    #admin-item img, .food-item img{
+        
+        padding-left: 35%;
+    }
+    #order-history{
+        margin-left: 0;
+        width: 400px;
+    }
+    .order-table{
+        float: none;
+        width: 400px;
+    }
+    
+    td, th{
+        padding: 2px;
+        width: 50px;
+    }
+    .order{
+        font-size: 12px;
+        text-align: left;
+    }
+    .button-status, .button-acc{
+        height: 28px;
+        width: 85px;
+        padding-left: 9px;
+        font-size: 15px;
+    }
+    .button-acc{
+        padding-left: 12px;
+    }
+    
+}
+
+
