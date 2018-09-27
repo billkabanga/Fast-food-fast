@@ -37,7 +37,7 @@ The code for the UI templates can be accessed using the URL: (https://github.com
 * Place a new order.
 * Update the status of an order.
 
-## getting the application on the local machine.
+## Getting the application on the local machine.
 Clone the remote repository to your local machine using the following command: `git clone https://github.com/billkabanga/Fast-food-fast.git`
 You can now access the project on your local machine by pointing to the local repository using `cd` and `code .` if using Visual Studio code will open the code location.
 Create a virtual environment in the local repository using the following code: `python -3 -m venv env`
