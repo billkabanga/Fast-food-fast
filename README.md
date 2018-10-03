@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bceeded827f5467383863f77f0fe5467)](https://app.codacy.com/app/billkabanga/Fast-food-fast?utm_source=github.com&utm_medium=referral&utm_content=billkabanga/Fast-food-fast&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/billkabanga/Fast-food-fast.svg?branch=API-feature)](https://travis-ci.org/billkabanga/Fast-food-fast)
 [![Coverage Status](https://coveralls.io/repos/github/billkabanga/Fast-food-fast/badge.svg?branch=API-feature)](https://coveralls.io/github/billkabanga/Fast-food-fast?branch=API-feature)
 [![Maintainability](https://api.codeclimate.com/v1/badges/177b99474b3084f12799/maintainability)](https://codeclimate.com/github/billkabanga/Fast-food-fast/maintainability)
