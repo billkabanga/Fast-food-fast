@@ -9,11 +9,11 @@
     <div class="container">
         <div class="loginbox" id="adsignin">
             <h1>Login</h1>
-            <form action="user.html" id="loginForm">
+            <form method="POST" id="loginForm" action="user.html">
                 <p>Username:</p>
-                <input type="text" name=""/>
+                <input type="text" id="username" required>
                 <p>Password:</p>
-                <input type="password" name=""><br/>
+                <input type="password" id="password" required><br/>
                 <input type="radio" value="client" checked name="clientType"><label>Client</label>
                 <input type="radio" value="admin" name="clientType"><label>Admin</label><br>
                 <button type="submit" class="signbutton">Login</button><br/>
