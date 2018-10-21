@@ -177,10 +177,18 @@
         <div class="available">
             <div class="menu-head" id="admin">
                 <h1>Foods available:</h1>
-                <form>
-                    <input type="search" placeholder="Add new fast food">
-                    <button type="submit" class="button-search">Add</button>
-                </form>
+                <div id="itemForm">
+                    <div id="itemAdd">
+                        <form id="foodForm" method="POST" enctype="multipart/form-data">
+                            <h2>Add new food item</h2>
+                            <input type="text" id="item" placeholder="food item" required>
+                            <input type="number" id="price" placeholder="price" required>
+                            <input type="file" id="file" required>
+                            <button type="submit" class="button-search">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <button class="button-search" id="popForm" onclick="divShow()">Add Item</button>
             </div>
             <div class="food-item" id="admin-item">
                 <h2>Plain Chips</h2>
@@ -208,5 +216,6 @@
             </div>
         </div>
     </div>
+    <script src="scripts/adminDash.js"></script>
 </body>
 </html>
