@@ -181,6 +181,9 @@ body{
     font-size: 18px;
 }
 
+#popForm{
+    margin-left: 45%;
+}
 .button-search:hover{
     background: gray;
     font-weight: bold;
