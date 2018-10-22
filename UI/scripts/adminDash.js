@@ -4,6 +4,7 @@ function divShow() {
 }
 
 document.getElementById('foodForm').addEventListener('submit', addItem);
+document.getElementById('menu').addEventListener('load', getMenu());
 const menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
 token = localStorage.getItem('token')
 function addItem(e){
@@ -37,4 +38,30 @@ function addItem(e){
         }
     })
     .catch(err => console.log(err));
+}
+
+function getMenu() {
+    console.log('Method called');
+    let Url = 'http://127.0.0.1:5000/api/v1/menu';
+    fetch(Url)
+    .then(res => {
+        console.log(res);
+        return res.json()
+    })
+    .then(response => {
+        let output = ''
+        for(let k in response){
+            console.log(response[k].item);
+            output += `
+            <div class="food-item" id="admin-item">
+                <h2>${response[k].item}</h2>
+                <img src="${response[k].image}">
+                <p> Price: ......................... ${response[k].price}/=<br/>
+                    <button type="submit" class="button-search">Edit</button>
+                    <button type="submit" class="button-search">Delete</button>
+                </p>
+            </div>`;
+            console.log(output);}
+        document.getElementById('menu').innerHTML = output;
+    })
 }
