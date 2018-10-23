@@ -5,6 +5,7 @@ function divShow() {
 
 document.getElementById('foodForm').addEventListener('submit', addItem);
 document.getElementById('menu').addEventListener('load', getMenu());
+document.getElementById('orderTable').addEventListener('load', getOrders());
 const menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
 token = localStorage.getItem('token')
 function addItem(e){
@@ -63,5 +64,45 @@ function getMenu() {
             </div>`;
             console.log(output);}
         document.getElementById('menu').innerHTML = output;
+    })
+}
+
+function getOrders() {
+    let ordersUrl = 'http://127.0.0.1:5000/api/v1/orders';
+    token = localStorage.getItem('token')
+    fetch(ordersUrl, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(res => res.json())
+    .then(response => {
+        let output = `
+        <tr class="col">
+            <th>Order No.</th>
+            <th>Order</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Client-name</th>
+            <th>Contact</th>
+            <th>Status</th>
+        </tr>`
+        for(let k in response){
+            console.log(response[k].item);
+            output += `
+            <tr class="order">
+                <td>${response[k].orderid}</td>
+                <td>${response[k].item}</td>
+                <td>${response[k].quantity}</td>
+                <td>${response[k].price}</td>
+                <td>${response[k].client}</td>
+                <td>${response[k].contact}</td>
+                <td>
+                    <button type="submit" class="button-acc">Accept</button>
+                    <button type="submit" class="button-acc">Decline</button>
+                </td>
+            </tr>`;
+            console.log(output);}
+        document.getElementById('orderTable').innerHTML = output;
     })
 }
