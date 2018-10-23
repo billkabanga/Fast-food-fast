@@ -109,7 +109,7 @@ body{
     margin-bottom: 5px;
 }
 
-#itemForm{
+#itemForm, #orderForm{
     width:100%;
     height:100%;
     opacity:.98;
@@ -142,6 +142,9 @@ body{
     text-align:center;
     border-radius:10px 10px 0 0
 }
+#foodForm p{
+    height: 20px;
+}
 #foodForm input[type=text], input[type=number] {
     width:82%;
     padding:10px;
@@ -151,6 +154,7 @@ body{
     font-size:16px;
     font-family:raleway
 }
+
 #admin{
     border: none;
 }
@@ -166,8 +170,8 @@ body{
 .menu-head form{
     padding-left: 50%;
 }
-.menu-head input[type="search"]{
-    height: 35px;
+.menu-head input[type="number"]{
+    height: 18px;
     width: 250px;
 }
 
@@ -184,6 +188,7 @@ body{
 #popForm{
     margin-left: 45%;
 }
+
 .button-search:hover{
     background: gray;
     font-weight: bold;
@@ -373,5 +378,3 @@ th{
     }
     
 }
-
-

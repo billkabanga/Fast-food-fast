@@ -6,6 +6,7 @@ function divShow() {
 document.getElementById('foodForm').addEventListener('submit', addItem);
 document.getElementById('menu').addEventListener('load', getMenu());
 document.getElementById('orderTable').addEventListener('load', getOrders());
+
 const menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
 token = localStorage.getItem('token')
 function addItem(e){
@@ -97,12 +98,46 @@ function getOrders() {
                 <td>${response[k].price}</td>
                 <td>${response[k].client}</td>
                 <td>${response[k].contact}</td>
-                <td>
-                    <button type="submit" class="button-acc">Accept</button>
-                    <button type="submit" class="button-acc">Decline</button>
-                </td>
-            </tr>`;
-            console.log(output);}
+                <td>${response[k].order_status}</td>
+            </tr>`;}
         document.getElementById('orderTable').innerHTML = output;
+    })
+}
+
+document.getElementById('getSpecific').onclick = function getSpecificOrder() {
+    console.log('get spec')
+    let order_id = document.getElementById('orderSearch').value;
+    console.log(order_id)
+    let specOrdersUrl = `http://127.0.0.1:5000/api/v1/orders/${order_id}`;
+    token = localStorage.getItem('token')
+    fetch(specOrdersUrl, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(res => res.json())
+    .then(response => {
+        if (response.message === 'Order not found'){
+            alert(response.message);
+        } else {
+            let output = ''
+            for(let k in response){
+                console.log(response[k].item);
+                output += `
+                <div id="itemAdd">
+                    <form id="foodForm" method="POST">
+                        <h2>Order ${order_id}</h2>
+                        <p>Order item:  ${response[k].item}</p>
+                        <p>Price:  ${response[k].price}/=</p>
+                        <p>Client:  ${response[k].client}</p>
+                        <p>Contact:  ${response[k].contact}</p>
+                        <button type="submit" class="button-acc">Accept</button>
+                        <button type="submit" class="button-acc">Decline</button>
+                    </form>
+                </div>`;
+                console.log(output);}
+            document.getElementById('orderForm').innerHTML = output;
+            document.getElementById('orderForm').style.display = "block";
+            }
     })
 }

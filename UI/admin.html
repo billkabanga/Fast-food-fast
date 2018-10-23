@@ -28,10 +28,12 @@
         <div class="available">
             <div class="menu-head">
                 <h1>Orders Section:</h1>
-                <form>
-                    <input type="search" placeholder="search for pending orders">
-                    <button type="submit" class="button-search">Search</button>
-                </form>
+                <div id="orderForm">  
+                </div>
+                <div id="popForm">
+                    <input type="number" id="orderSearch" placeholder="search orders by order no.">
+                    <button class="button-search" id="getSpecific" onclick="orderShow()">Search</button>
+                </div>
             </div>
             <div class="order-table">
                 <h1 class="table-heading">Current Orders</h1>
