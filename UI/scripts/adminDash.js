@@ -6,6 +6,7 @@ function divShow() {
 document.getElementById('foodForm').addEventListener('submit', addItem);
 document.getElementById('menu').addEventListener('load', getMenu());
 document.getElementById('orderTable').addEventListener('load', getOrders());
+document.getElementById('orderForm').addEventListener('submit', updateStatus);
 
 const menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
 token = localStorage.getItem('token')
@@ -125,14 +126,15 @@ document.getElementById('getSpecific').onclick = function getSpecificOrder() {
                 console.log(response[k].item);
                 output += `
                 <div id="itemAdd">
-                    <form id="foodForm" method="POST">
+                    <form id="foodForm" method="PUT">
                         <h2>Order ${order_id}</h2>
                         <p>Order item:  ${response[k].item}</p>
                         <p>Price:  ${response[k].price}/=</p>
                         <p>Client:  ${response[k].client}</p>
                         <p>Contact:  ${response[k].contact}</p>
-                        <button type="submit" class="button-acc">Accept</button>
-                        <button type="submit" class="button-acc">Decline</button>
+                        <button type="submit" class="button-acc" value="Processing">Accept</button>
+                        <button type="submit" class="button-acc" value="Cancelled">Decline</button>
+                        <button type="submit" class="button-acc" value="Complete">Deliver</button>
                     </form>
                 </div>`;
                 console.log(output);}
@@ -140,4 +142,43 @@ document.getElementById('getSpecific').onclick = function getSpecificOrder() {
             document.getElementById('orderForm').style.display = "block";
             }
     })
+}
+
+function updateStatus(e){
+    e.preventDefault();
+    console.log('lets update');
+    let order_id = document.getElementById('orderSearch').value;
+    console.log(order_id)
+    let updateUrl = `http://127.0.0.1:5000/api/v1/orders/${order_id}`;
+    token = localStorage.getItem('token')
+    let statusButtons = document.getElementsByClassName('button-acc');
+    for (let i = 0; i<statusButtons.length; i++){
+        statusButtons[i].addEventListener('click', function(){order_status = statusButtons[i].value;})
+    }
+    console.log(order_status)
+    data = {
+        order_id: order_id,
+        order_status: order_status
+    }
+    console.log(data)
+    fetch(updateUrl, {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(response => {
+        console.log(response);
+        if (response.message === 'Order status updated'){
+            alert('Order status updated');
+            window.location.replace('admin.html');
+        } else {
+            alert(response.message);
+        }
+    })
+    .catch(err => console.log(err));
 }

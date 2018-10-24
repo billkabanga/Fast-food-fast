@@ -271,11 +271,10 @@ th{
     background: black;
     border: 0;
     border-radius: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
     color: white;
     font-size: 15px;
     margin-bottom: 1px;
+    outline: none;
 }
 
 #order-history{
