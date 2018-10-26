@@ -40,11 +40,11 @@ function postOrder(e){
 }
 function getImgSrc(item){
     let srcObj = {
-        rolex: 'E:/Andela_prep/fast-food-fast/UI/img/rolex.jpg',
-        chips: 'E:/Andela_prep/fast-food-fast/UI/img/chip.jpg',
-        pilau: 'E:/Andela_prep/fast-food-fast/UI/img/pilau.jpg',
-        pizza: 'E:/Andela_prep/fast-food-fast/UI/img/pizza.jpg',
-        sausage: 'E:/Andela_prep/fast-food-fast/UI/img/sausage.png'
+        rolex: '../UI/img/rolex.jpg',
+        chips: '../UI/img/chip.jpg',
+        pilau: '../UI/img/pilau.jpg',
+        pizza: '../UI/img/pizza.jpg',
+        sausage: '../UI/img/sausage.png'
     };
     for (let key of Object.keys(srcObj)){
         if (item === key){
