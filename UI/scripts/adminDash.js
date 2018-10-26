@@ -15,12 +15,10 @@ function addItem(e){
 
     let item = document.getElementById('item').value;
     let price = document.getElementById('price').value;
-    let file = document.getElementById('file').files[0];
 
     let formData =  new FormData();
     formData.append('item', item);
     formData.append('price', price);
-    formData.append('file', file);
 
     fetch(menuUrl, {
         method: 'POST',
@@ -42,6 +40,20 @@ function addItem(e){
     })
     .catch(err => console.log(err));
 }
+function getImgSrc(item){
+    let srcObj = {
+        rolex: 'E:/Andela_prep/fast-food-fast/UI/img/rolex.jpg',
+        chips: 'E:/Andela_prep/fast-food-fast/UI/img/chip.jpg',
+        pilau: 'E:/Andela_prep/fast-food-fast/UI/img/pilau.jpg',
+        pizza: 'E:/Andela_prep/fast-food-fast/UI/img/pizza.jpg',
+        sausage: 'E:/Andela_prep/fast-food-fast/UI/img/sausage.png'
+    };
+    for (let key of Object.keys(srcObj)){
+        if (item === key){
+            src = srcObj[key];
+        }
+    }
+}
 
 function getMenu() {
     console.log('Method called');
@@ -55,10 +67,12 @@ function getMenu() {
         let output = ''
         for(let k in response){
             console.log(response[k].item);
+            getImgSrc(response[k].item);
+            console.log(src)
             output += `
             <div class="food-item" id="admin-item">
                 <h2>${response[k].item}</h2>
-                <img src="${response[k].image}">
+                <img src=${src}>
                 <p> Price: ......................... ${response[k].price}/=<br/>
                     <button type="submit" class="button-search">Edit</button>
                     <button type="submit" class="button-search">Delete</button>

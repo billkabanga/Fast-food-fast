@@ -38,6 +38,20 @@ function postOrder(e){
     })
     .catch(err => console.log(err));
 }
+function getImgSrc(item){
+    let srcObj = {
+        rolex: 'E:/Andela_prep/fast-food-fast/UI/img/rolex.jpg',
+        chips: 'E:/Andela_prep/fast-food-fast/UI/img/chip.jpg',
+        pilau: 'E:/Andela_prep/fast-food-fast/UI/img/pilau.jpg',
+        pizza: 'E:/Andela_prep/fast-food-fast/UI/img/pizza.jpg',
+        sausage: 'E:/Andela_prep/fast-food-fast/UI/img/sausage.png'
+    };
+    for (let key of Object.keys(srcObj)){
+        if (item === key){
+            src = srcObj[key];
+        }
+    }
+}
 
 function getUserMenu(){
     let menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
@@ -47,10 +61,11 @@ function getUserMenu(){
         let output = ''
         for(let k in response){
             console.log(response[k].item);
+            getImgSrc(response[k].item)
             output += `
             <div class="food-item">
                 <h2>${response[k].item}</h2>
-                <img src="${response[k].image}">
+                <img src="${src}">
                 <p> Price: ......................... ${response[k].price}/=<br/>
                     <button type="submit" class="button-search">Add to cart</button>
                 </p>
