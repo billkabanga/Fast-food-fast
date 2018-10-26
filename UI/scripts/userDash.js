@@ -5,7 +5,7 @@ function divShow() {
 document.getElementById('foodForm').addEventListener('submit', postOrder);
 document.getElementById('user-menu').addEventListener('load', getUserMenu());
 document.getElementById('orderItem').addEventListener('load', getOrderHistory());
-const orderUrl = 'http://127.0.0.1:5000/api/v1/users/orders';
+const orderUrl = 'https://bill-fast-food.herokuapp.com/api/v1/users/orders';
 token = localStorage.getItem('token')
 
 function postOrder(e){
@@ -54,7 +54,7 @@ function getImgSrc(item){
 }
 
 function getUserMenu(){
-    let menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
+    let menuUrl = 'https://bill-fast-food.herokuapp.com/api/v1/menu';
     fetch(menuUrl)
     .then(res => res.json())
     .then(response => {
@@ -76,7 +76,7 @@ function getUserMenu(){
 }
 
 function getOrderHistory() {
-    let histUrl = 'http://127.0.0.1:5000/api/v1/users/orders';
+    let histUrl = 'https://bill-fast-food.herokuapp.com/api/v1/users/orders';
     token = localStorage.getItem('token')
     fetch(histUrl, {
         headers: {

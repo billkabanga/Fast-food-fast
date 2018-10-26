@@ -1,6 +1,6 @@
 //grab the form from the dom
 document.getElementById('loginForm').addEventListener('submit', loginUser);
-const url = 'http://127.0.0.1:5000/api/v1/auth/login';
+const url = 'https://bill-fast-food.herokuapp.com/api/v1/auth/login';
 
 function loginUser(e){
     e.preventDefault();

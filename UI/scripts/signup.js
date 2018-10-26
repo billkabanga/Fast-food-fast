@@ -1,5 +1,5 @@
 document.getElementById('signupForm').addEventListener('submit', registerUser);
-const url = 'http://127.0.0.1:5000/api/v1/auth/signup';
+const url = 'https://bill-fast-food.herokuapp.com/api/v1/auth/signup';
 
 function registerUser(event){
     event.preventDefault();

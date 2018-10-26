@@ -8,7 +8,7 @@ document.getElementById('menu').addEventListener('load', getMenu());
 document.getElementById('orderTable').addEventListener('load', getOrders());
 document.getElementById('orderForm').addEventListener('submit', updateStatus);
 
-const menuUrl = 'http://127.0.0.1:5000/api/v1/menu';
+const menuUrl = 'https://bill-fast-food.herokuapp.com/api/v1/menu';
 token = localStorage.getItem('token')
 function addItem(e){
     e.preventDefault();
@@ -57,7 +57,7 @@ function getImgSrc(item){
 
 function getMenu() {
     console.log('Method called');
-    let Url = 'http://127.0.0.1:5000/api/v1/menu';
+    let Url = 'https://bill-fast-food.herokuapp.com/api/v1/menu';
     fetch(Url)
     .then(res => {
         console.log(res);
@@ -84,7 +84,7 @@ function getMenu() {
 }
 
 function getOrders() {
-    let ordersUrl = 'http://127.0.0.1:5000/api/v1/orders';
+    let ordersUrl = 'https://bill-fast-food.herokuapp.com/api/v1/orders';
     token = localStorage.getItem('token')
     fetch(ordersUrl, {
         headers: {
@@ -123,7 +123,7 @@ document.getElementById('getSpecific').onclick = function getSpecificOrder() {
     console.log('get spec')
     let order_id = document.getElementById('orderSearch').value;
     console.log(order_id)
-    let specOrdersUrl = `http://127.0.0.1:5000/api/v1/orders/${order_id}`;
+    let specOrdersUrl = `https://bill-fast-food.herokuapp.com/api/v1/orders/${order_id}`;
     token = localStorage.getItem('token')
     fetch(specOrdersUrl, {
         headers: {
@@ -163,7 +163,7 @@ function updateStatus(e){
     console.log('lets update');
     let order_id = document.getElementById('orderSearch').value;
     console.log(order_id)
-    let updateUrl = `http://127.0.0.1:5000/api/v1/orders/${order_id}`;
+    let updateUrl = `https://bill-fast-food.herokuapp.com/api/v1/orders/${order_id}`;
     token = localStorage.getItem('token')
     let statusButtons = document.getElementsByClassName('button-acc');
     for (let i = 0; i<statusButtons.length; i++){
