@@ -14,8 +14,8 @@
             </div>
             <div class="navbar">
                 <ul class="nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Admin</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="usersignin.html">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -28,185 +28,38 @@
         <div class="available">
             <div class="menu-head">
                 <h1>Orders Section:</h1>
-                <form>
-                    <input type="search" placeholder="search for pending orders">
-                    <button type="submit" class="button-search">Search</button>
-                </form>
+                <div id="orderForm">  
+                </div>
+                <div id="popForm">
+                    <input type="number" id="orderSearch" placeholder="search orders by order no.">
+                    <button class="button-search" id="getSpecific" onclick="orderShow()">Search</button>
+                </div>
             </div>
             <div class="order-table">
-                <h1 class="table-heading">Current Orders</h1>
-                <table>
-                    <tr class="col">
-                        <th>Order</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Client-name</th>
-                        <th>Contact</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td><button type="submit" class="button-status">Complete</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="order-table">
-                <h1 class="table-heading">Queued Orders</h1>
-                <table>
-                    <tr class="col">
-                        <th>Order</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Client-name</th>
-                        <th>Contact</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
-                    <tr class="order">
-                        <td>Chips</td>
-                        <td>2</td>
-                        <td>7000</td>
-                        <td>Kabanga</td>
-                        <td>0778431835</td>
-                        <td>
-                            <button type="submit" class="button-acc">Accept</button>
-                            <button type="submit" class="button-acc">Decline</button>
-                        </td>
-                    </tr>
+                <h1 class="table-heading">Orders</h1>
+                <table id="orderTable">
                 </table>
             </div>
         </div>
         <div class="available">
             <div class="menu-head" id="admin">
                 <h1>Foods available:</h1>
-                <form>
-                    <input type="search" placeholder="Add new fast food">
-                    <button type="submit" class="button-search">Add</button>
-                </form>
+                <div id="itemForm">
+                    <div id="itemAdd">
+                        <form id="foodForm" method="POST">
+                            <h2>Add new food item</h2>
+                            <input type="text" id="item" placeholder="food item" required>
+                            <input type="number" id="price" placeholder="price" required>
+                            <button type="submit" class="button-search">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <button class="button-search" id="popForm" onclick="divShow()">Add Item</button>
             </div>
-            <div class="food-item" id="admin-item">
-                <h2>Plain Chips</h2>
-                <img src="img/chip.jpg">
-                <p> Price: ......................... 3500/=<br/>
-                    <button type="submit" class="button-search">Edit</button>
-                    <button type="submit" class="button-search">Delete</button>
-                </p>
-            </div>
-            <div class="food-item" id="admin-item">
-                <h2>Pilau</h2>
-                <img src="img/pilau.jpg">
-                <p> Price: ......................... 3000/=<br/>
-                    <button type="submit" class="button-search">Edit</button>
-                    <button type="submit" class="button-search">Delete</button>
-                </p>
-            </div>
-            <div class="food-item" id="admin-item">
-                <h2>Pizza</h2>
-                <img src="img/pizza.jpg">
-                <p> Price: ......................... 10000/=<br/>
-                    <button type="submit" class="button-search">Edit</button>
-                    <button type="submit" class="button-search">Delete</button>
-                </p>
+            <div id="menu">
             </div>
         </div>
     </div>
+    <script src="scripts/adminDash.js"></script>
 </body>
 </html>

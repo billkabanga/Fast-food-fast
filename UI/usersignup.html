@@ -9,22 +9,23 @@
     <div class="container">
         <div class="loginbox" id="usersignup">
             <h1>Sign Up</h1>
-            <form action="usersignin.html" id="loginForm">
+            <form method="POST" id="signupForm" action="usersignin.html">
                 <p>Username:</p>
-                <input type="text" name=""/>
+                <input type="text" id="username" required/>
                 <p>Email:</p>
-                <input type="text" name=""><br/>
+                <input type="text" id="email" required><br/>
                 <p>Contact:</p>
-                <input type="tel" name=""><br/>
+                <input type="tel" id="tel" required><br/>
                 <p>Password:</p>
-                <input type="password" name=""><br/>
+                <input type="password" id="password" required><br/>
                 <p>Confirm Password:</p>
-                <input type="password" name=""><br/>
+                <input type="password" id="passwordConf" required><br/>
                 <input type="radio" value="client" checked name="clientType"><label>Client</label>
                 <input type="radio" value="admin" name="clientType"><label>Admin</label><br>
                 <button type="submit" class="signbutton">sign up</button>
             </form>
         </div>
     </div>
+    <script src="scripts/signup.js"></script>
 </body>
 </html>
