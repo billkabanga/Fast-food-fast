@@ -29,7 +29,7 @@ You will need the following:
 ## Built with:
 * HTML5
 * CSS3
-* ES6
+* ES6 (javascript)
 
 ## Author:
 Author of this project-Twinomuhwezi Kabanga Bill, 
